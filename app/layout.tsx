@@ -1,28 +1,36 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import SmoothScroll from "./components/SmoothScroll";
+import GlobalBackground from "./components/GlobalBackground";
+import PageTransition from "./components/PageTransition";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "The Duos Media - Your Brand Making Partner",
-  description: "Founder-led branding and digital marketing agency helping businesses grow with creative strategy, powerful content, and digital visibility.",
+export const metadata = {
+  title: "The Duos Media",
+  description: "Premium digital marketing agency",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <body className="bg-black text-white relative min-h-screen">
+
+  <GlobalBackground />   {/* background layer */}
+
+  <SmoothScroll />
+  <Header />
+
+  {/* IMPORTANT WRAPPER */}
+  <div className="relative z-10 min-h-screen">
+    <PageTransition>
+      {children}
+    </PageTransition>
+  </div>
+
+</body>
     </html>
   );
 }
