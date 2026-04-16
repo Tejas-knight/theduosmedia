@@ -20,7 +20,7 @@ export default function Contact() {
           </a>
 
           <a href="mailto:theduosmedia@gmail.com" className="block hover:text-yellow-400">
-            theduosmedia@gmail.com
+            services@theduosmedia.in
           </a>
 
           <a href="https://instagram.com/the_duos_media" target="_blank" className="block hover:text-yellow-400">
