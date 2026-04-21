@@ -326,7 +326,7 @@ export default function Home() {
               <div className="relative h-[300px]">
                 <Image
                   src="/images/strategy.png"
-                  alt="Cranky Potato project visual"
+                  alt="Strategy visual"
                   fill
                   className="object-cover object-center"
                 />
@@ -356,7 +356,7 @@ export default function Home() {
               <div className="relative h-[300px]">
                 <Image
                   src="/images/branding.png"
-                  alt="Emerging Brand Campaigns project visual"
+                  alt="Branding visual"
                   fill
                   className="object-cover object-center"
                 />
