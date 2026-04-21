@@ -1,93 +1,62 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
-      {/* HEADER */}
-      <header className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-md">
-        <div className="flex justify-between items-center px-6 py-4">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/50 border-b border-white/10">
 
-          {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/images/logo.jpg"
-              alt="logo"
-              width={36}
-              height={36}
-              className="rounded-full"
-            />
-            <span className="font-semibold">THE DUOS MEDIA</span>
-          </Link>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-          {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/services" className="text-gray-300 hover:text-white">Services</Link>
-            <Link href="/pricing" className="text-gray-300 hover:text-white">Pricing</Link>
-            <Link href="/contact" className="text-gray-300 hover:text-white">Contact</Link>
+        {/* LOGO + NAME */}
+        <Link href="/" className="flex items-center gap-3">
+          
+          <Image
+            src="/images/logo.jpg"
+            alt="The Duos Media Logo"
+            width={36}
+            height={36}
+            className="rounded-full object-cover"
+          />
 
-            <a
-              href="https://wa.me/918600042805"
-              className="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition"
-            >
-              Let’s Talk
-            </a>
-          </div>
+          <span className="text-sm md:text-base font-medium tracking-wide">
+            THE DUOS MEDIA
+          </span>
 
-          {/* MOBILE MENU ICON */}
-          <button
-            onClick={() => setOpen(true)}
-            className="md:hidden flex flex-col gap-1"
-          >
-            <span className="w-6 h-[2px] bg-white"></span>
-            <span className="w-4 h-[2px] bg-white"></span>
-          </button>
+        </Link>
 
-        </div>
-      </header>
+        {/* DESKTOP NAV */}
+        <nav className="hidden md:flex gap-8 text-sm text-gray-300">
+          <Link href="/">Home</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
 
-      {/* MOBILE MENU OVERLAY */}
-      {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="fixed inset-0 bg-black z-50 flex flex-col justify-center items-center gap-8"
+        {/* MOBILE MENU BUTTON */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden text-white text-xl"
         >
-          {/* CLOSE BUTTON */}
-          <button
-            onClick={() => setOpen(false)}
-            className="absolute top-6 right-6 text-white text-2xl"
-          >
-            ✕
-          </button>
+          ☰
+        </button>
 
-          {/* MENU ITEMS */}
-          <Link onClick={() => setOpen(false)} href="/services" className="text-3xl font-medium">
-            Services
-          </Link>
+      </div>
 
-          <Link onClick={() => setOpen(false)} href="/pricing" className="text-3xl font-medium">
-            Pricing
-          </Link>
-
-          <Link onClick={() => setOpen(false)} href="/contact" className="text-3xl font-medium">
-            Contact
-          </Link>
-
-          <a
-            href="https://wa.me/918600042805"
-            className="mt-6 bg-yellow-400 text-black px-6 py-3 rounded-full"
-          >
-            Let’s Talk
-          </a>
-        </motion.div>
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="md:hidden px-6 pb-6 space-y-4 text-gray-300 bg-black/90">
+          <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+          <Link href="/services" onClick={() => setOpen(false)}>Services</Link>
+          <Link href="/pricing" onClick={() => setOpen(false)}>Pricing</Link>
+          <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
+        </div>
       )}
-    </>
+
+    </header>
   );
 }

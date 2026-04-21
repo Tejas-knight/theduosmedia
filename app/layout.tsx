@@ -1,12 +1,13 @@
 import "./globals.css";
 import Header from "./components/Header";
-import SmoothScroll from "./components/SmoothScroll";
 import GlobalBackground from "./components/GlobalBackground";
-import PageTransition from "./components/PageTransition";
 
 export const metadata = {
   title: "The Duos Media",
-  description: "Premium digital marketing agency",
+  description: "Stories that build business.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -16,21 +17,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white relative min-h-screen">
+      <body className="bg-black text-white">
 
-  <GlobalBackground />   {/* background layer */}
+        {/* ✅ ONE GLOBAL BACKGROUND */}
+        <GlobalBackground />
 
-  <SmoothScroll />
-  <Header />
+        {/* HEADER */}
+        <Header />
 
-  {/* IMPORTANT WRAPPER */}
-  <div className="relative z-10 min-h-screen">
-    <PageTransition>
-      {children}
-    </PageTransition>
-  </div>
+        {/* CONTENT */}
+        <main className="relative z-10">
+          {children}
+        </main>
 
-</body>
+      </body>
     </html>
   );
 }
