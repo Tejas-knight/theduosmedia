@@ -325,7 +325,7 @@ export default function Home() {
             >
               <div className="relative h-[300px]">
                 <Image
-                  src="/images/strategy.png"
+                  src="/images/strat.png"
                   alt="Strategy visual"
                   fill
                   className="object-cover object-center"
@@ -355,7 +355,7 @@ export default function Home() {
             >
               <div className="relative h-[300px]">
                 <Image
-                  src="/images/branding.png"
+                  src="/images/brand.png"
                   alt="Branding visual"
                   fill
                   className="object-cover object-center"
